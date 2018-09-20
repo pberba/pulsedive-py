@@ -7,7 +7,11 @@ A low-level client for Pulsedive that aims provide an easy and idiomatic way to 
 Installation
 ------------
 
-To install you can clone the repository and run ``python setup.py install``
+Install the ``pulsedive`` package with `pip
+<https://pypi.org/project/pulsedive/>`_::
+
+    pip install pulsedive
+
 
 Example use
 -----------
