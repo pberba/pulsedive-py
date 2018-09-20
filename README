@@ -37,3 +37,8 @@ Simple use-case::
     pud.search.threat('Zeus')
     pud.search.feed('Zeus')
 
+
+
+`Full documentation`_.
+
+.. _Full documentation: https://pulsedive-py.readthedocs.io
