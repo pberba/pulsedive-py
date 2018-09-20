@@ -1,0 +1,53 @@
+# compiled source #
+###################
+*.pyc
+
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Icon
+Thumbs.db
+.tmtags
+.idea
+tags
+vendor.tags
+tmtagsHistory
+*.sublime-project
+*.sublime-workspace
+.bundle
+
+# Virtualenv #
+##############
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+
+# Testing #
+###########
+.cache
+.tox
+.coverage
+htmlcov
+.pytest*
+
+# Others #
+##########
+.DS_Store
+.idea
+
+# Setup #
+#########
+*.egg-info
+dist
+
+# Docs #
+########
+docs/build

@@ -1,0 +1,43 @@
+Python Pulsedive Client
+===========================
+
+A low-level client for Pulsedive that aims provide an easy and idiomatic way to interact with the Pulsedive API.
+
+
+Installation
+------------
+
+To install you can clone the repository and run ``python setup.py install``
+
+Example use
+-----------
+
+Sample Code::
+
+    import pulasedive
+    pud = pulsedive.Pulsedive()
+
+    # Getting a specific indicator
+    ind = pud.indicator(name='pulsedive.com')
+    pud.indicator.links(ind['iid'])
+
+    # Searching for indicators
+    pud.search('pulsedive', risks=['high', 'critical'], indicator_type=['ip'])
+
+
+    # Pulling from feeds or threats
+    pud.feed.links(1)
+    pud.threat.links(1)
+
+    # Searching for threats and feeds
+    pud.search.threat('Zeus')
+    pud.search.feed('Zeus')
+
+
+Contents
+--------
+
+.. toctree::
+   :maxdepth: 2
+
+   api
