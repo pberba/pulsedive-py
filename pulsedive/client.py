@@ -185,6 +185,10 @@ class SearchClient:
     """
     Exposes the Pulsedive `Search API
     <https://pulsedive.com/api/?q=search>`_
+
+     .. warning::
+        The use of ``properties`` is not yet stable, and untested.
+
     """
     def __init__(self, pulsedive_client):
         self.pud = pulsedive_client
@@ -193,7 +197,7 @@ class SearchClient:
     # TODO: Lookup how to use property
     def __call__(self, value='', risk=RISKS, indicator_type=INDICATOR_TYPES,
                  lastseen=None, latest=None, limit=None, properties=None,
-                 attributes=None, feeds=None, threats=None, export=False,
+                 attribute=None, feed=None, threat=None, export=False,
                  **kwargs):
         """
         Searches for indicators, an alias of the `.get()` method
@@ -202,12 +206,12 @@ class SearchClient:
                               indicator_type=indicator_type,
                               lastseen=lastseen, latest=latest, limit=limit,
                               export=export, properties=properties,
-                              attribute=attributes, feed=feeds,
-                              threat=threats, **kwargs)
+                              attribute=attribute, feed=feed,
+                              threat=threat, **kwargs)
 
     def indicator(self, value='', risk=RISKS, indicator_type=INDICATOR_TYPES,
-            lastseen=None, latest=None, limit='hundred', export=False,
-            properties=None, attribute=None, feed=None, threat=None, **kwargs):
+                  lastseen=None, latest=None, limit='hundred', export=False,
+                  properties=None, attribute=None, feed=None, threat=None, **kwargs):
         """
         Searches for indicators, similar to how searches are
         done in the Pulsedive Site.
@@ -216,7 +220,6 @@ class SearchClient:
 
             pud.search.indicator('Zues')
             pud.search('Zeus')
-
 
         :arg value: Search value for the indicator
         :arg risk: Either a value or list of values from the risk types to include
