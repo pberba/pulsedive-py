@@ -8,8 +8,8 @@ PULSEDIVE_URL = 'https://pulsedive.com/api'
 
 CATEGORIES = ['general', 'abuse', 'apt', 'attack', 'botnet', 'crime',
               'exploitkit', 'fraud', 'group', 'malware', 'proxy', 'pup',
-              'reconnaissance', 'spam', 'terrorism', 'vulnerability']
-INDICATOR_TYPES = ['ip', 'url', 'domain', 'artifact']
+              'reconnaissance', 'spam', 'terrorism', 'phishing', 'vulnerability']
+INDICATOR_TYPES = ['ip', 'ipv6', 'url', 'domain', 'artifact']
 RISKS = ['unknown', 'none', 'low', 'medium', 'high', 'critical', 'retired']
 
 
