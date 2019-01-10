@@ -438,7 +438,7 @@ class Pulsedive:
 
         is_raw = kwargs.pop('raw', self.raw)
 
-        args = self.args
+        args = self.args.copy()
         args.update(kwargs)
 
         if method == 'GET':
