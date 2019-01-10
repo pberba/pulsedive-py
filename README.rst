@@ -18,26 +18,32 @@ Example use
 
 Simple use-case::
 
-    import pulasedive
+    import pulsedive
+    # pud = pulsedive.Pulsedive('<API KEY>')
     pud = pulsedive.Pulsedive()
 
     # Getting a specific indicator
-    ind = pud.indicator(name='pulsedive.com')
+    ind = pud.indicator(value='pulsedive.com')
     pud.indicator.links(ind['iid'])
 
     # Searching for indicators
-    pud.search('pulsedive', risks=['high', 'critical'], indicator_type=['ip'])
-
+    pud.search('pulsedive', risk=['high', 'critical'], indicator_type=['ip'])
 
     # Pulling from feeds or threats
     pud.feed.links(1)
     pud.threat.links(1)
 
     # Searching for threats and feeds
-    pud.search.threat('Zeus')
+    pud.search.threat('Zeus', risk=['high', 'critical'])
     pud.search.feed('Zeus')
 
+    # Exporting a search
+    pud.search.to_csv(filename="zues.csv", threat=['Zeus'], indicator_type=['ip'])
 
+    # Analyzing
+    # q = pud.analyze.encoded('Z29vZ2xlLmNvbQ==')
+    q = pud.analyze('google.com')
+    pud.analyze.results(q['qid'])
 
 `Full documentation`_.
 
