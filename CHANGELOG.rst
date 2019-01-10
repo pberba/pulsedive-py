@@ -8,6 +8,7 @@ Changelog
   * Fixed bug with ``requests`` default arguments being modified
   * Added ``phishing`` to the default CATEGORIES
   * Added ``ipv6`` to the default INDICATOR_TYPES
+  * Added support for getting feed by name and organization
 
 0.0.2
 -----

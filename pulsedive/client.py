@@ -145,16 +145,19 @@ class FeedClient:
     def __init__(self, pulsedive_client):
         self.pud = pulsedive_client
 
-    def __call__(self, fid, **kwargs):
+    def __call__(self, fid=None, feed=None, organization=None, **kwargs):
         """
        Gets data of a feed through its feed ID.
        This is an alias to ``pud.feed.get()``
 
-       :arg fid: Feed ID
+       :arg fid: Feed ID used when retrieving by fid
+       :arg feed: name of the feed used when retrieving by name.
+            This has to be the complete name of the field but is not case sensitive.
+       :arg organization: optional field when retrieving by name
        """
-        return self.get(fid, **kwargs)
+        return self.get(fid=fid, feed=feed, organization=organization **kwargs)
 
-    def get(self, fid, **kwargs):
+    def get(self, fid=None, feed=None, organization=None, **kwargs):
         """
         Gets data of a feed through its feed ID.
 
@@ -162,10 +165,30 @@ class FeedClient:
 
             pud.feed.get(1)
             pud.feed(1)
+            pud.feed.get(feed='zeus bad domains')
+            pud.feed.get(
+                feed='Zeus Bad Domains',
+                organization='abuse.ch'
+            )
 
-        :arg fid: Feed ID
+        :arg fid: Feed ID used when retrieving by fid
+        :arg feed: name of the feed used when retrieving by name.
+            This has to be the complete name of the field but is not case sensitive.
+        :arg organization: optional field when retrieving by name
+
         """
-        params = {'fid': fid}
+        params = {}
+
+        if fid is not None:
+            params['fid'] = fid
+        elif feed is not None:
+            params['feed'] = feed
+        else:
+            raise PulsediveException('"fid" or "feed" has to be set')
+
+        if organization is not None:
+            params['organization'] = organization
+
         return self.pud.get('info.php', params, **kwargs)
 
     def links(self, fid, **kwargs):
